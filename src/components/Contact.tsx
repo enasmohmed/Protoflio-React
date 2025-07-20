@@ -3,6 +3,8 @@ import React, { useState, useRef, useEffect } from 'react';
 import { Mail, Phone, MapPin, Send } from 'lucide-react';
 import emailjs from 'emailjs-com';
 import { FaWhatsapp } from 'react-icons/fa';
+import { motion } from 'framer-motion';
+
 
 const Contact = () => {
   const formRef = useRef<HTMLFormElement>(null);
@@ -89,10 +91,17 @@ const Contact = () => {
 }, [submitStatus]);
 
   return (
-    <section id="contact" className="py-20 bg-white">
+    <motion.section
+      id="contact"
+      className="py-20 bg-white"
+      initial={{ opacity: 0, y: 50 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8, ease: 'easeOut' }}
+      viewport={{ once: true, amount: 0.2 }}
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">Get In Touch</h2>
+          <h2 className="text-4xl font-bold text-gray-900 mb-4">Contact Us</h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
             I'm always interested in new opportunities and collaborations.
             Feel free to reach out if you'd like to work together!
@@ -111,9 +120,13 @@ const Contact = () => {
 
             <div className="space-y-4">
               {contactInfo.map((item, index) => (
-                <a
+              <motion.a
                   key={index}
                   href={item.href}
+                  initial={{ opacity: 0, x: -20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ delay: index * 0.2, duration: 0.5 }}
+                  viewport={{ once: true }}
                   className="flex items-center space-x-4 p-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors duration-200 group"
                 >
                   <div className="p-3 bg-blue-600 text-white rounded-lg group-hover:bg-blue-700 transition-colors duration-200">
@@ -123,12 +136,18 @@ const Contact = () => {
                     <p className="font-medium text-gray-900">{item.label}</p>
                     <p className="text-gray-600">{item.value}</p>
                   </div>
-                </a>
+                </motion.a>
               ))}
             </div>
           </div>
 
-          <div className="bg-gray-50 p-8 rounded-xl">
+          <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.5, delay: 0.3 }}
+              viewport={{ once: true }}
+              className="bg-gray-50 p-8 rounded-xl"
+            >
             <form ref={formRef} onSubmit={handleSubmit} className="space-y-6">
               <div className="grid sm:grid-cols-2 gap-4">
                 <div>
@@ -234,10 +253,10 @@ const Contact = () => {
                 <p className="text-red-500 text-center">Something went wrong. Please try again later.</p>
               )}
             </form>
-          </div>
+          </motion.div>
         </div>
       </div>
-    </section>
+    </motion.section >
   );
 };
 

@@ -25,5 +25,5 @@ EmailJS (Contact form)
 Vite
 
 📦 Live Demo:
-https://your-vercel-link.vercel.app
+https://protoflio-react-gold.vercel.app/
 

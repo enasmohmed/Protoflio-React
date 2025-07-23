@@ -24,6 +24,8 @@ const Footer = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
+  const currentYear = new Date().getFullYear();
+
   return (
     <footer className="bg-gray-900 text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
@@ -31,8 +33,7 @@ const Footer = () => {
           <div>
             <h3 className="text-2xl font-bold mb-4">Enas Mohamed</h3>
             <p className="text-gray-400 mb-4">
-              Junior React & Django Developer passionate about creating 
-              exceptional web experiences.
+              Junior React & Django Developer passionate about creating exceptional web experiences.
             </p>
             <div className="flex justify-center md:justify-start space-x-4">
               {socialLinks.map((link) => (
@@ -86,18 +87,23 @@ const Footer = () => {
           </div>
         </div>
 
+        {/* Footer Bottom */}
         <div className="border-t border-gray-800 mt-8 pt-8 text-center">
-          <p className="text-gray-400 flex items-center justify-center space-x-2">
-            <span>© 2025 Enas Mohamed. Built with</span>
-            <Heart size={16} className="text-red-500" />
-            <span>using React & TypeScript & TailwindCSS</span>
+          <p className="text-gray-400 flex flex-wrap items-center justify-center gap-2 text-sm md:text-base">
+            <span>© {currentYear} Enas Mohamed.</span>
+            <span className="flex items-center gap-1">
+              Built with
+              <Heart className="text-red-500 animate-pulse" size={16} />
+              using React, TypeScript & TailwindCSS
+            </span>
           </p>
         </div>
       </div>
 
+      {/* Scroll to Top */}
       <button
         onClick={scrollToTop}
-        className="fixed bottom-6 right-6 bg-blue-600 text-white p-3 rounded-full shadow-lg hover:bg-blue-700 transition-colors duration-200 z-40"
+        className="fixed bottom-5 right-5 p-3 rounded-full bg-[#302b63] hover:bg-[#463e89] text-white shadow-lg transition"
         aria-label="Scroll to top"
       >
         <svg

@@ -1,71 +1,74 @@
-import { Code, Server, Palette, GitBranch, Smartphone, Database, Wrench, Calendar } from 'lucide-react';
+import {
+  Code,
+  Server,
+  GitBranch,
+} from 'lucide-react';
 import { motion } from 'framer-motion';
 import TerminalCard from './SkillsMarquee';
+import { FaReact, FaPython, FaGithub, FaLinux, FaBootstrap, FaSass, FaFigma } from 'react-icons/fa';
+import { SiJavascript, SiTypescript, SiTailwindcss, SiJquery, SiPostgresql, SiDjango, SiVercel, SiHeroku, SiPostman, SiRedux } from 'react-icons/si';
 
-// import myabout from '../assets/about.png'
+
+const VSCodeIcon = () => (
+  <img
+    src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg"
+    alt="VS Code"
+    width={15}
+    height={15}
+  />
+);
+
+
+const iconMap = {
+  'React.js': <FaReact />,
+  'JavaScript (ES6+)': <SiJavascript />,
+  'TypeScript': <SiTypescript />,
+  'Tailwind CSS': <SiTailwindcss />,
+  'Bootstrap 5': <FaBootstrap />,
+  'SASS/SCSS': <FaSass />,
+  'jQuery': <SiJquery />,
+  'Python': <FaPython />,
+  'Django': <SiDjango />,
+  'PostgreSQL': <SiPostgresql />,
+  'Git & GitHub': <FaGithub />,
+  'Linux (Basics)': <FaLinux />,
+  'Figma (Basics)': <FaFigma />,
+  'Vercel': <SiVercel />,
+  'Heroku': <SiHeroku />,
+  'VS Code': <VSCodeIcon />,
+  'Postman': <SiPostman />,
+  'Redux': <SiRedux />
+  // أضيفي أي تكنولوجيا ناقصة هنا
+};
+
+
+
+
+
+const skills = [
+  {
+    category: 'Frontend',
+    icon: <Code size={24} />,
+    items: ['React.js', 'JavaScript (ES6+)', 'TypeScript', 'HTML5', 'CSS3', 'Bootstrap 5', 'Tailwind CSS', 'SASS/SCSS', 'jQuery', 'AJAX', 'DOM & BOM'],
+    color: 'from-blue-500 to-blue-600',
+  },
+  {
+    category: 'Backend',
+    icon: <Server size={24} />,
+    items: ['Python', 'Django', 'Django REST Framework', 'PostgreSQL', 'SQLite', 'ORM', 'API Integration'],
+    color: 'from-green-500 to-green-600',
+  },
+  {
+    category: 'Tools & Others',
+    icon: <GitBranch size={24} />,
+    items: ['Git & GitHub', 'NPM', 'Linux (Basics)', 'Vercel', 'PythonAnywhere', 'Heroku', 'Trello', 'VS Code', 'PyCharm', 'Responsive Design', 'Figma (Basics)', 'Axios', 'Form Handling', 'React Router', 'Authentication', 'Postman'],
+    color: 'from-purple-500 to-purple-600',
+  }
+];
+
 const About = () => {
-  const skills = [
-    {
-      category: 'Frontend',
-      icon: <Code size={24} />,
-      items: [
-        'React.js',
-        'JavaScript (ES6+)',
-        'TypeScript',
-        'HTML5',
-        'CSS3',
-        'Bootstrap 5',
-        'Tailwind CSS',
-        'SASS/SCSS',
-        'jQuery',
-        'AJAX',
-        'DOM & BOM'
-      ],
-      color: 'from-blue-500 to-blue-600'
-    },
-    {
-      category: 'Backend',
-      icon: <Server size={24} />,
-      items: [
-        'Python',
-        'Django',
-        'Django REST Framework',
-        'PostgreSQL',
-        'SQLite',
-        'ORM',
-        'API Integration'
-      ],
-      color: 'from-green-500 to-green-600'
-    },
-    {
-      category: 'Tools & Others',
-      icon: <GitBranch size={24} />,
-      items: [
-        'Git & GitHub',
-        'NPM',
-        'Linux (Basics)',
-        'Vercel',
-        'PythonAnywhere',
-        'Heroku',
-        'Trello',
-        'VS Code',
-        'PyCharm',
-        'Responsive Design',
-        'Figma (Basics)',
-        'Axios',
-        'Form Handling',
-        'React Router',
-        'Authentication',
-        'Postman'
-      ],
-      color: 'from-purple-500 to-purple-600'
-    }
-  ];
-
-
   return (
-    <section id="about" className="py-20 bg-slate-100">
-
+    <section id="about" className="py-20 bg-slate-100 overflow-x-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <motion.h2
@@ -85,7 +88,12 @@ const About = () => {
 
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left Text Section */}
-          <div className="space-y-6">
+          <motion.div
+            initial={{ opacity: 0, x: -40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6 }}
+            className="space-y-6"
+          >
             <div className="prose prose-lg max-w-none">
               <p className="text-gray-700 leading-relaxed">
                 My journey into web development began from a genuine curiosity about how things work on the web.
@@ -99,50 +107,43 @@ const About = () => {
                 Beyond coding, I value collaboration, creativity, and solving real-world problems through technology.
               </p>
             </div>
-
-            {/* <div className="flex flex-wrap gap-3 hover:scale-105 transition-transform duration-200">
-              {['Problem Solver', 'Team Player', 'Fast Learner', 'Detail-Oriented'].map((trait) => (
-                <span
-                  key={trait}
-                  className="px-4 py-2 bg-blue-100 text-blue-800 rounded-full text-sm font-medium"
-                >
-                  {trait}
-                </span>
-              ))}
-            </div> */}
             <TerminalCard />
-          </div>
+          </motion.div>
 
           {/* Right Skills Section */}
-          <div className="grid gap-6">
+          <motion.div
+            initial={{ opacity: 0, x: 40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6 }}
+            className="grid gap-4 w-full"
+          >
             {skills.map((skillCategory) => (
-              <motion.div
+              <div
                 key={skillCategory.category}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: 0.1 }}
-                className="p-6 bg-white rounded-xl hover:shadow-lg border border-gray-100 transition-shadow duration-300"
+                className="p-4 bg-white rounded-lg hover:shadow-md border border-gray-100 transition-shadow duration-300 text-sm"
               >
                 <div className="flex items-center mb-4">
                   <div className={`p-3 rounded-lg bg-gradient-to-r ${skillCategory.color} text-white mr-4`}>
                     {skillCategory.icon}
                   </div>
-                  <h3 className="text-xl font-semibold text-gray-900">{skillCategory.category}</h3>
+                  <h3 className="text-lg font-semibold text-gray-900">{skillCategory.category}</h3>
                 </div>
                 <div className="flex flex-wrap gap-2">
                   {skillCategory.items.map((skill) => (
                     <span
                       key={skill}
-                      className="px-3 py-1 bg-gray-50 text-gray-800 rounded-lg text-sm border border-gray-200 hover:border-gray-300 transition-colors duration-200"
+                      className="px-3 py-1 bg-gray-50 text-gray-800 rounded-lg text-sm border border-gray-200 hover:border-gray-300 flex items-center gap-2 transition"
                     >
+                      <span className="text-base">
+                        {iconMap[skill] || '🔧'}
+                      </span>
                       {skill}
                     </span>
                   ))}
                 </div>
-              </motion.div>
+              </div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

@@ -1,27 +1,32 @@
 import React, { useEffect, useState } from 'react';
+import { motion } from 'framer-motion';
 
 function TypewriterText() {
-  const texts = [
-    'Junior React & Django Developer',
-    'Frontend & Backend Developer',
+  const roles = [
+    'Full-Stack Developer',
+    'Django Developer',
+    'React Developer',
+    'Modern Design',
+    'Scalable Apps',
   ];
+
 
   const [text, setText] = useState('');
   const [isDeleting, setIsDeleting] = useState(false);
-  const [loopIndex, setLoopIndex] = useState(0); // بتتحكم في الجملة الحالية
+  const [loopIndex, setLoopIndex] = useState(0);
 
   useEffect(() => {
-    const currentText = texts[loopIndex % texts.length];
-    const speed = isDeleting ? 50 : 100;
+    const current = roles[loopIndex % roles.length];
+    const speed = isDeleting ? 40 : 80;
 
     const timer = setTimeout(() => {
       setText(prev =>
         isDeleting
-          ? currentText.substring(0, prev.length - 1)
-          : currentText.substring(0, prev.length + 1)
+          ? current.substring(0, prev.length - 1)
+          : current.substring(0, prev.length + 1)
       );
 
-      if (!isDeleting && text === currentText) {
+      if (!isDeleting && text === current) {
         setTimeout(() => setIsDeleting(true), 1500);
       } else if (isDeleting && text === '') {
         setIsDeleting(false);
@@ -33,10 +38,26 @@ function TypewriterText() {
   }, [text, isDeleting, loopIndex]);
 
   return (
-    <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white">
-      {text}
-      <span className="animate-pulse">|</span>
-    </h2>
+    <div className="text-center space-y-4">
+      <motion.h1
+        className="text-3xl sm:text-4xl md:text-5xl font-bold text-white"
+        initial={{ opacity: 0, y: 40 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1 }}
+      >
+        Hi, I'm Enas Mohamed 
+      </motion.h1>
+
+      <motion.h2
+        className="text-xl sm:text-2xl md:text-3xl font-medium text-gray-200"
+        initial={{ opacity: 0, y: 40 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.5, duration: 1 }}
+      >
+        {text}
+        <span className="animate-pulse">|</span>
+      </motion.h2>
+    </div>
   );
 }
 

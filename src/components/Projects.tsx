@@ -42,14 +42,16 @@ const Projects = () => {
             1024: { slidesPerView: 3 },
           }}
         >
-          {projects.map((project) => (
+          {projects.map((project, index) => (
             <SwiperSlide key={project.title}>
               <motion.div
-                initial={{ opacity: 0, scale: 0.95 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.6, delay: 0.1 }}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden group h-full flex flex-col justify-between"
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                className={`bg-white rounded-xl overflow-hidden group h-full flex flex-col justify-between 
+                  shadow-lg hover:shadow-xl transition-shadow duration-300 
+                  drop-shadow-[0_0_10px_rgba(0,0,0,0.1)]`}
               >
                 <div className={`p-6 bg-gradient-to-br ${project.gradient} text-white`}>
                   <div className="flex items-center justify-between mb-4">

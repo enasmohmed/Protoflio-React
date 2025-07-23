@@ -129,7 +129,7 @@ const Contact = () => {
                   viewport={{ once: true }}
                   className="flex items-center space-x-4 p-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors duration-200 group"
                 >
-                  <div className="p-3 bg-blue-600 text-white rounded-lg group-hover:bg-blue-700 transition-colors duration-200">
+                  <div className="p-3 bg-[#1e1b36] text-white rounded-lg group-hover:bg-[#747476] transition-colors duration-200">
                     {item.icon}
                   </div>
                   <div>
@@ -217,7 +217,7 @@ const Contact = () => {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors duration-200 flex items-center justify-center space-x-2"
+                className="w-full bg-[#1e1b36] text-white px-6 py-3 rounded-lg font-semibold hover:bg-[#747476] disabled:opacity-50 disabled:cursor-not-allowed transition-colors duration-200 flex items-center justify-center space-x-2"
               >
                 {isSubmitting ? (
                   <>

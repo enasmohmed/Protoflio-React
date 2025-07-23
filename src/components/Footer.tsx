@@ -28,76 +28,16 @@ const Footer = () => {
 
   return (
     <footer className="bg-gray-900 text-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid md:grid-cols-3 gap-8 text-center md:text-left">
-          <div>
-            <h3 className="text-2xl font-bold mb-4">Enas Mohamed</h3>
-            <p className="text-gray-400 mb-4">
-              Junior React & Django Developer passionate about creating exceptional web experiences.
-            </p>
-            <div className="flex justify-center md:justify-start space-x-4">
-              {socialLinks.map((link) => (
-                <a
-                  key={link.name}
-                  href={link.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="p-2 bg-gray-800 rounded-lg hover:bg-gray-700 transition-colors duration-200"
-                  aria-label={link.name}
-                >
-                  {link.icon}
-                </a>
-              ))}
-            </div>
-          </div>
-
-          <div>
-            <h4 className="text-lg font-semibold mb-4">Quick Links</h4>
-            <ul className="space-y-2">
-              {['Home', 'About', 'Projects', 'Contact'].map((item) => (
-                <li key={item}>
-                  <button
-                    onClick={() => {
-                      const element = document.getElementById(item.toLowerCase());
-                      if (element) {
-                        element.scrollIntoView({ behavior: 'smooth' });
-                      }
-                    }}
-                    className="text-gray-400 hover:text-white transition-colors duration-200"
-                  >
-                    {item}
-                  </button>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div>
-            <h4 className="text-lg font-semibold mb-4">Skills</h4>
-            <div className="flex flex-wrap gap-2 justify-center md:justify-start">
-              {['HTML5', 'CSS3','React', 'Django', 'JavaScript','TypeScript', 'Python', 'TailwindCSS','Bootstrap5', 'Git'].map((skill) => (
-                <span
-                  key={skill}
-                  className="px-3 py-1 bg-gray-800 text-gray-300 rounded-full text-sm"
-                >
-                  {skill}
-                </span>
-              ))}
-            </div>
-          </div>
-        </div>
-
-        {/* Footer Bottom */}
-        <div className="border-t border-gray-800 mt-8 pt-8 text-center">
-          <p className="text-gray-400 flex flex-wrap items-center justify-center gap-2 text-sm md:text-base">
-            <span>© {currentYear} Enas Mohamed.</span>
-            <span className="flex items-center gap-1">
-              Built with
-              <Heart className="text-red-500 animate-pulse" size={16} />
-              using React, TypeScript & TailwindCSS
-            </span>
-          </p>
-        </div>
+      {/* Footer Bottom */}
+      <div className="border-t border-gray-800 mt-8 p-8 text-center">
+        <p className="text-gray-400 flex flex-wrap items-center justify-center gap-2 text-sm md:text-base">
+          <span>© {currentYear} Enas Mohamed.</span>
+          <span className="flex items-center gap-1">
+            Built with
+            <Heart className="text-red-600 animate-pulse fill-current stroke-none" size={20} />
+            using React, TypeScript & TailwindCSS
+          </span>
+        </p>
       </div>
 
       {/* Scroll to Top */}

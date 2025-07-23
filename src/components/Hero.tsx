@@ -42,7 +42,7 @@ const Hero = () => {
           {/* === Buttons === */}
           <div className="flex gap-4 mt-6 flex-wrap">
             <a
-              href="/Enas-Mohamed-CV-Resume.pdf"
+              href="/Enas-Mohamed-CV.pdf"
               download
               className="px-6 py-3 border border-white rounded-full hover:bg-white hover:text-black transition"
             >

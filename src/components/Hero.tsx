@@ -57,7 +57,7 @@ const Hero = () => {
           </div>
 
           {/* === Socials === */}
-          <div className="flex gap-4 mt-6">
+          <div className="flex justify-center gap-4 mt-6 w-full">
             <a href="https://github.com/enasmohmed" target="_blank" className="hover:text-pink-400">
               <Github size={24} />
             </a>

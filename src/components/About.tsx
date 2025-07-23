@@ -68,25 +68,26 @@ const skills = [
 
 const About = () => {
   return (
-    <section id="about" className="py-20 bg-slate-100 overflow-x-hidden">
+    <section id="about" className="py-20 bg-slate-100 w-full overflow-x-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
+        <div className="text-center mb-12">
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="text-4xl font-bold text-gray-900 mb-4"
+            className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4"
           >
             About Me
           </motion.h2>
 
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-base sm:text-lg text-gray-600 max-w-2xl mx-auto">
             I'm a Junior Full-Stack Developer passionate about building responsive, scalable apps using modern technologies like React, Django, and REST APIs.
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+        {/* Responsive Grid */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
           {/* Left Text Section */}
           <motion.div
             initial={{ opacity: 0, x: -40 }}
@@ -94,16 +95,14 @@ const About = () => {
             transition={{ duration: 0.6 }}
             className="space-y-6"
           >
-            <div className="prose prose-lg max-w-none">
-              <p className="text-gray-700 leading-relaxed">
+            <div className="prose prose-sm sm:prose lg:prose-lg max-w-none">
+              <p className="text-gray-700 leading-relaxed break-words">
                 My journey into web development began from a genuine curiosity about how things work on the web.
-                Over time, this curiosity grew into a passion for crafting elegant and intuitive digital experiences.
               </p>
-              <p className="text-gray-700 leading-relaxed">
-                I specialize in <span className="font-semibold">React</span> on the frontend and <span className="font-semibold">Django</span> on the backend, 
-                and I’m constantly learning new technologies to level up my skills and deliver meaningful solutions.
+              <p className="text-gray-700 leading-relaxed break-words">
+                I specialize in <span className="font-semibold">React</span> on the frontend and <span className="font-semibold">Django</span> on the backend.
               </p>
-              <p className="text-gray-700 leading-relaxed">
+              <p className="text-gray-700 leading-relaxed break-words">
                 Beyond coding, I value collaboration, creativity, and solving real-world problems through technology.
               </p>
             </div>
@@ -115,28 +114,26 @@ const About = () => {
             initial={{ opacity: 0, x: 40 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6 }}
-            className="grid gap-4 w-full"
+            className="grid gap-4 w-full sm:grid-cols-2 lg:grid-cols-3"
           >
             {skills.map((skillCategory) => (
               <div
                 key={skillCategory.category}
-                className="p-4 bg-white rounded-lg hover:shadow-md border border-gray-100 transition-shadow duration-300 text-sm"
+                className="p-3 sm:p-4 bg-white rounded-md hover:shadow-md border border-gray-100 transition-shadow duration-300 text-xs sm:text-sm"
               >
-                <div className="flex items-center mb-4">
-                  <div className={`p-3 rounded-lg bg-gradient-to-r ${skillCategory.color} text-white mr-4`}>
+                <div className="flex items-center mb-2 sm:mb-3">
+                  <div className={`p-2 rounded-md bg-gradient-to-r ${skillCategory.color} text-white mr-2`}>
                     {skillCategory.icon}
                   </div>
-                  <h3 className="text-lg font-semibold text-gray-900">{skillCategory.category}</h3>
+                  <h3 className="text-sm sm:text-base font-semibold text-gray-900">{skillCategory.category}</h3>
                 </div>
-                <div className="flex flex-wrap gap-2">
+                <div className="flex flex-wrap gap-1 sm:gap-2">
                   {skillCategory.items.map((skill) => (
                     <span
                       key={skill}
-                      className="px-3 py-1 bg-gray-50 text-gray-800 rounded-lg text-sm border border-gray-200 hover:border-gray-300 flex items-center gap-2 transition"
+                      className="px-2 py-1 bg-gray-50 text-gray-800 rounded-md text-xs border border-gray-200 hover:border-gray-300 flex items-center gap-1"
                     >
-                      <span className="text-base">
-                        {iconMap[skill] || '🔧'}
-                      </span>
+                      <span className="text-sm">{iconMap[skill] || '🔧'}</span>
                       {skill}
                     </span>
                   ))}
@@ -144,9 +141,11 @@ const About = () => {
               </div>
             ))}
           </motion.div>
+
         </div>
       </div>
     </section>
+
   );
 };
 

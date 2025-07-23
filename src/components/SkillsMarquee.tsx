@@ -39,7 +39,7 @@ export default function TerminalCard() {
   return (
     <div className="bg-black text-green-400 font-mono text-sm p-4 rounded-xl shadow-lg animate-terminal-glow">
       {visibleLines.map((line, index) => (
-        <p key={index} className="mb-1 whitespace-pre">
+        <p key={index} className="mb-1 whitespace-pre-wrap break-words break-all">
           {line}
         </p>
       ))}

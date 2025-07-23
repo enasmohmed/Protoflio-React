@@ -61,7 +61,7 @@ const skills = [
   {
     category: 'Tools & Others',
     icon: <GitBranch size={24} />,
-    items: ['Git & GitHub', 'NPM', 'Linux (Basics)', 'Vercel', 'PythonAnywhere', 'Heroku', 'Trello', 'VS Code', 'PyCharm', 'Responsive Design', 'Figma (Basics)', 'Axios', 'Form Handling', 'React Router', 'Authentication', 'Postman'],
+    items: ['Git & GitHub', 'NPM', 'Vercel', 'PythonAnywhere', 'Heroku', 'VS Code', 'PyCharm', 'Figma (Basics)', 'Axios', 'Form Handling', 'React Router', 'Authentication'],
     color: 'from-purple-500 to-purple-600',
   }
 ];
@@ -114,26 +114,26 @@ const About = () => {
             initial={{ opacity: 0, x: 40 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6 }}
-            className="grid gap-4 w-full sm:grid-cols-2 lg:grid-cols-3"
+            className="grid gap-4 w-full lg:grid-cols-1 sm:grid-cols-2"
           >
             {skills.map((skillCategory) => (
               <div
                 key={skillCategory.category}
-                className="p-3 sm:p-4 bg-white rounded-md hover:shadow-md border border-gray-100 transition-shadow duration-300 text-xs sm:text-sm"
+                className="p-4 sm:p-5 bg-white rounded-lg hover:shadow-md border border-gray-100 transition-shadow duration-300 text-sm"
               >
-                <div className="flex items-center mb-2 sm:mb-3">
-                  <div className={`p-2 rounded-md bg-gradient-to-r ${skillCategory.color} text-white mr-2`}>
+                <div className="flex items-center mb-3">
+                  <div className={`p-2 sm:p-3 rounded-lg bg-gradient-to-r ${skillCategory.color} text-white mr-3`}>
                     {skillCategory.icon}
                   </div>
-                  <h3 className="text-sm sm:text-base font-semibold text-gray-900">{skillCategory.category}</h3>
+                  <h3 className="text-base sm:text-lg font-semibold text-gray-900">{skillCategory.category}</h3>
                 </div>
-                <div className="flex flex-wrap gap-1 sm:gap-2">
+                <div className="flex flex-wrap gap-2">
                   {skillCategory.items.map((skill) => (
                     <span
                       key={skill}
-                      className="px-2 py-1 bg-gray-50 text-gray-800 rounded-md text-xs border border-gray-200 hover:border-gray-300 flex items-center gap-1"
+                      className="px-2 py-1 sm:px-3 sm:py-1.5 bg-gray-50 text-gray-800 rounded-md text-xs sm:text-sm border border-gray-200 hover:border-gray-300 flex items-center gap-1 sm:gap-2 transition"
                     >
-                      <span className="text-sm">{iconMap[skill] || '🔧'}</span>
+                      <span className="text-base">{iconMap[skill] || '🔧'}</span>
                       {skill}
                     </span>
                   ))}
@@ -141,7 +141,6 @@ const About = () => {
               </div>
             ))}
           </motion.div>
-
         </div>
       </div>
     </section>
